@@ -11,29 +11,34 @@ const FAQ = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".faq-title", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: faqRef.current,
-          start: "top 70%",
-        },
-      });
+      gsap.fromTo(
+        ".faq-title",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: faqRef.current, start: "top 80%" },
+        }
+      );
 
-      gsap.from(".faq-item", {
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: faqRef.current,
-          start: "top 60%",
-        },
+      const items = gsap.utils.toArray<HTMLElement>(".faq-item");
+      items.forEach((item, i) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            delay: i * 0.1,
+            ease: "power3.out",
+            scrollTrigger: { trigger: item, start: "top 90%" },
+          }
+        );
       });
-    });
+    }, faqRef);
 
     return () => ctx.revert();
   }, []);
@@ -73,7 +78,7 @@ const FAQ = () => {
     <section ref={faqRef} className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 faq-title">
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-5xl font-bold mb-4 text-foreground">
             Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -85,18 +90,18 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="faq-item glass-card rounded-xl overflow-hidden border border-white/10 hover:border-accent/50 transition-all duration-300"
+              className="faq-item glass-card rounded-xl overflow-hidden border border-border hover:border-accent/50 transition-all duration-300"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors"
+                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-muted/20 transition-colors"
               >
-                <h3 className="text-lg font-semibold pr-4">{faq.question}</h3>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-primary flex items-center justify-center">
+                <h3 className="text-lg font-semibold pr-4 text-foreground">{faq.question}</h3>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
                   {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-white" />
+                    <Minus className="w-5 h-5 text-primary-foreground" />
                   ) : (
-                    <Plus className="w-5 h-5 text-white" />
+                    <Plus className="w-5 h-5 text-primary-foreground" />
                   )}
                 </div>
               </button>

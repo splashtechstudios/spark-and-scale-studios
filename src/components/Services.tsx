@@ -10,18 +10,25 @@ const Services = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".service-card", {
-        opacity: 0,
-        y: 80,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: servicesRef.current,
-          start: "top 70%",
-        },
+      const cards = gsap.utils.toArray<HTMLElement>(".service-card");
+      cards.forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 80 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            delay: i * 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            },
+          }
+        );
       });
-    });
+    }, servicesRef);
 
     return () => ctx.revert();
   }, []);
@@ -61,7 +68,7 @@ const Services = () => {
     <section id="services" ref={servicesRef} className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-5xl font-bold mb-4 text-foreground">
             Our <span className="text-gradient">Services</span>
           </h2>
           <p className="text-xl text-muted-foreground">
@@ -80,14 +87,14 @@ const Services = () => {
                 <div
                   className={`w-16 h-16 rounded-xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}
                 >
-                  <Icon className="w-8 h-8 text-white" />
+                  <Icon className="w-8 h-8 text-primary-foreground" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
+                <h3 className="text-2xl font-bold mb-3 text-foreground">{service.title}</h3>
                 <p className="text-muted-foreground mb-6">{service.description}</p>
                 <ul className="space-y-2">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 text-sm">
-                      <div className="w-1.5 h-1.5 rounded-full bg-gradient-primary" />
+                    <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                       {feature}
                     </li>
                   ))}

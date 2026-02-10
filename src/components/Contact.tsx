@@ -11,29 +11,34 @@ const Contact = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".contact-content", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: contactRef.current,
-          start: "top 70%",
-        },
-      });
+      gsap.fromTo(
+        ".contact-content",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: contactRef.current, start: "top 80%" },
+        }
+      );
 
-      gsap.from(".contact-item", {
-        opacity: 0,
-        x: -30,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: contactRef.current,
-          start: "top 60%",
-        },
+      const items = gsap.utils.toArray<HTMLElement>(".contact-item");
+      items.forEach((item, i) => {
+        gsap.fromTo(
+          item,
+          { opacity: 0, y: 30 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: i * 0.2,
+            ease: "power3.out",
+            scrollTrigger: { trigger: item, start: "top 90%" },
+          }
+        );
       });
-    });
+    }, contactRef);
 
     return () => ctx.revert();
   }, []);
@@ -64,7 +69,7 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="contact-content glass-card rounded-3xl p-12 text-center glow-primary">
-            <h2 className="text-5xl font-bold mb-4">
+            <h2 className="text-5xl font-bold mb-4 text-foreground">
               Let's Build <span className="text-gradient">Together</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12">
@@ -82,11 +87,11 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="contact-item glass-card rounded-xl p-6 hover:scale-105 transition-all duration-300 group"
                   >
-                    <div className="w-12 h-12 rounded-full bg-gradient-primary flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
-                      <Icon className="w-6 h-6 text-white" />
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center mx-auto mb-4 group-hover:animate-glow">
+                      <Icon className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div className="text-sm text-muted-foreground mb-1">{item.label}</div>
-                    <div className="font-medium text-sm">{item.value}</div>
+                    <div className="font-medium text-sm text-foreground">{item.value}</div>
                   </a>
                 );
               })}
@@ -94,7 +99,7 @@ const Contact = () => {
 
             <Button
               size="lg"
-              className="bg-gradient-primary border-0 text-lg px-12 py-6 glow-primary hover:opacity-90 transition-opacity group"
+              className="bg-gradient-to-r from-primary to-accent border-0 text-lg px-12 py-6 text-primary-foreground glow-primary hover:opacity-90 transition-opacity group"
               asChild
             >
               <a href="mailto:splashtechstudios@gmail.com" className="flex items-center gap-2">
