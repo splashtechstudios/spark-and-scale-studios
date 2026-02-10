@@ -10,29 +10,34 @@ const About = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".about-title", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: "top 70%",
-        },
-      });
+      gsap.fromTo(
+        ".about-title",
+        { opacity: 0, y: 50 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: { trigger: aboutRef.current, start: "top 80%" },
+        }
+      );
 
-      gsap.from(".about-feature", {
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: aboutRef.current,
-          start: "top 60%",
-        },
+      const features = gsap.utils.toArray<HTMLElement>(".about-feature");
+      features.forEach((el, i) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: i * 0.15,
+            ease: "power3.out",
+            scrollTrigger: { trigger: el, start: "top 85%" },
+          }
+        );
       });
-    });
+    }, aboutRef);
 
     return () => ctx.revert();
   }, []);
@@ -62,7 +67,7 @@ const About = () => {
     <section ref={aboutRef} className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 about-title">
-          <h2 className="text-5xl font-bold mb-4">
+          <h2 className="text-5xl font-bold mb-4 text-foreground">
             24/7 Support & <span className="text-gradient">Guaranteed Delivery</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -81,9 +86,9 @@ const About = () => {
                 <div
                   className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mx-auto mb-6 group-hover:animate-glow`}
                 >
-                  <Icon className="w-10 h-10 text-white" />
+                  <Icon className="w-10 h-10 text-primary-foreground" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">{feature.title}</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">{feature.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
               </div>
             );
