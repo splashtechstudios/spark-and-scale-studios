@@ -126,7 +126,7 @@ const projects: Project[] = [
     category: "FinTech / Savings Platform",
     description: "Save in local currency, hold in USD & USDT. Beat inflation.",
     fullDescription: "Konlo protects savings from local currency inflation and unlocks borderless withdrawals. Users can save in their local currency and hold in USD & USDT. Features bank-grade security, global access, and inflation protection. Trusted by thousands across Nigeria, Ghana, Kenya, Brazil, and more with a 4.9/5 rating.",
-    image: "tool-results://fetched-websites/konlo-global-guard.vercel.app.png",
+    image: "/projects/konlo.png",
     gradient: "from-accent-glow to-primary",
   },
   {
