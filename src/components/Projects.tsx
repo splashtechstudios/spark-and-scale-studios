@@ -134,7 +134,7 @@ const projects: Project[] = [
     category: "HealthTech Platform",
     description: "Healthcare access — care for whoever, wherever, whenever.",
     fullDescription: "Gen Health bridges people and providers with fast, personal healthcare access that puts control back in the patient's hands. Features include familiar messaging-app interface, location-based services, proactive care with early detection, personal health manager, 24/7 availability, and instant connection to healthcare providers. Replacing waiting rooms with better experiences.",
-    image: "tool-results://fetched-websites/genhealth-kappa.vercel.app.png",
+    image: "/projects/genhealth.png",
     gradient: "from-primary to-accent",
   },
   {
