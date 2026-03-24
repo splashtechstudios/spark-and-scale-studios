@@ -102,7 +102,7 @@ const projects: Project[] = [
     category: "EdTech Learning Platform",
     description: "AI-powered exam prep for JAMB, WAEC, NECO, ICAN, TOEFL.",
     fullDescription: "An AI-powered educational platform preparing students for professional exams including JAMB, WAEC, NECO, ICAN, and TOEFL. Features specific curriculums for each exam, past questions, AI tutors across every course and topic, and realistic exam simulations. The platform provides personalized learning paths and intelligent assessment tools.",
-    image: "tool-results://fetched-websites/learn-well-ai-educational-platform.vercel.app.png",
+    image: "/projects/eduai.png",
     gradient: "from-primary to-accent-glow",
   },
   {
