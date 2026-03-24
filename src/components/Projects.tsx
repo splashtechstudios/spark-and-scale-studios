@@ -70,7 +70,7 @@ const projects: Project[] = [
     category: "E-Commerce & Business Automation",
     description: "Artisanal doughnuts brand with automated business processes.",
     fullDescription: "Ria's Treat — Artisanal Doughnuts Fit for Royalty. An e-commerce platform for handcrafted doughnuts made with the finest ingredients and royal attention to detail. Beyond the customer-facing storefront, the platform automates core business processes including order management, inventory tracking, and delivery coordination.",
-    image: "tool-results://fetched-websites/www.riastreat.com.ng.png",
+    image: "/projects/rias-treat.png",
     gradient: "from-primary-glow to-accent-glow",
   },
   {
