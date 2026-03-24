@@ -38,7 +38,7 @@ const projects: Project[] = [
     category: "Logistics & Technical Services",
     description: "Integrated logistics and support services across West Africa.",
     fullDescription: "A swift, secure, and seamless logistics platform. JuaChini Group serves as a trusted partner for Integrated Technical, Logistics, and Support Services across West Africa and beyond. The platform streamlines operations and provides end-to-end logistics management for enterprise clients.",
-    image: "tool-results://fetched-websites/www.juachinigroup.com.png",
+    image: "/projects/juachini.png",
     gradient: "from-primary-glow to-accent",
   },
   {
