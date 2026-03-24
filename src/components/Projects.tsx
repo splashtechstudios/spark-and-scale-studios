@@ -30,7 +30,7 @@ const projects: Project[] = [
     category: "Real Estate Inventory CRM",
     description: "Inventory tracking CRM that saved over ₦50M by preventing material theft.",
     fullDescription: "A real estate inventory CRM that takes control of inventory, engineer requests, and material disbursements across construction sites. MatTrack ensures work is always ongoing and trackable, prevents material theft or diversion, and pinpoints inconsistencies — identifying who and at what point issues occurred. This application saved over ₦50 million by preventing material theft, spotting material mismanagement, and enforcing strict compliance with company standards.",
-    image: "tool-results://fetched-websites/mattrack.vercel.app.png",
+    image: "/projects/mattrack.png",
     gradient: "from-accent to-accent-glow",
   },
   {
