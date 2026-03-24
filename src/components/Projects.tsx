@@ -142,7 +142,7 @@ const projects: Project[] = [
     category: "School LMS Portal",
     description: "School management system for quality education and character development.",
     fullDescription: "A comprehensive school LMS portal for RHEMA PRIMARY & SECONDARY SCHOOL SYSTEM. The platform is committed to nurturing young minds through quality education and character development. Features enrollment management, academic tracking, fee management, and a complete learning management system for students and educators.",
-    image: "tool-results://fetched-websites/rhemaschools.vercel.app.png",
+    image: "/projects/rhema.png",
     gradient: "from-accent to-primary-glow",
   },
   {
