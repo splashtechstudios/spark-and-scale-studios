@@ -158,7 +158,7 @@ const projects: Project[] = [
     category: "E-Commerce Sales Portal",
     description: "Complete e-commerce sales portal for retail businesses.",
     fullDescription: "A comprehensive e-commerce sales portal designed for retail businesses. Point Prime POS provides point-of-sale functionality, inventory management, sales tracking, customer management, and reporting — all in a modern, intuitive interface built for speed and efficiency.",
-    image: "tool-results://fetched-websites/preview--point-prime-pos.lovable.app.png",
+    image: "/projects/pointprime.png",
     gradient: "from-accent to-primary",
   },
 ];
