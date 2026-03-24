@@ -110,7 +110,7 @@ const projects: Project[] = [
     category: "Forex Trading Academy",
     description: "Nigeria's premier forex academy with student learning platform.",
     fullDescription: "Vanguard Forex Drive Network — Nigeria's Premier Forex Academy transforming beginners into professional traders. The platform features a comprehensive student portal where lessons can be taken, with structured courses on persistence, focus, and ambition in trading. Includes progress tracking, cohort management, and free training modules.",
-    image: "tool-results://fetched-websites/www.vfdn.com.ng.png",
+    image: "/projects/vfdn.png",
     gradient: "from-accent to-primary",
   },
   {
