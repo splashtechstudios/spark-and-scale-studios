@@ -78,7 +78,7 @@ const projects: Project[] = [
     category: "Hospitality & Hotel Management",
     description: "Hotel and resort platform with internal flow and processing.",
     fullDescription: "A complete hotel and resort digital product for Osieka Resort. The platform handles room bookings, restaurant management, and event coordination — perfect moments under the African sky. It also aids internal flow and processing for staff operations, guest management, and service delivery optimization.",
-    image: "tool-results://fetched-websites/www.oseikaresort.com.ng.png",
+    image: "/projects/osieka.png",
     gradient: "from-accent to-primary",
   },
   {
