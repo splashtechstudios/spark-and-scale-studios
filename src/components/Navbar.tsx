@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
+import sptechLogo from "@/assets/sptech-logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
