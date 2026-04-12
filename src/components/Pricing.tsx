@@ -1,9 +1,4 @@
-import { useEffect, useRef } from "react";
 import { Check } from "lucide-react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const plans = [
   {
@@ -48,27 +43,8 @@ const plans = [
 ];
 
 const Pricing = () => {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(".pricing-card", {
-        y: 60,
-        opacity: 0,
-        duration: 0.7,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 80%",
-        },
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} id="pricing" className="py-20 md:py-32 relative">
+    <section id="pricing" className="py-20 md:py-32 relative">
       <div className="container mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
@@ -83,7 +59,7 @@ const Pricing = () => {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`pricing-card glass-card rounded-2xl p-8 flex flex-col relative transition-all duration-300 hover:scale-105 ${
+              className={`glass-card rounded-2xl p-8 flex flex-col relative transition-all duration-300 hover:scale-105 ${
                 plan.highlighted
                   ? "border-primary/50 glow-primary"
                   : "border-border/30"
