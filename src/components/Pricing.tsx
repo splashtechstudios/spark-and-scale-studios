@@ -52,15 +52,17 @@ const Pricing = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".pricing-card", {
-        y: 60,
-        opacity: 0,
+      const cards = gsap.utils.toArray<HTMLElement>(".pricing-card");
+      gsap.set(cards, { y: 60, autoAlpha: 0 });
+      gsap.to(cards, {
+        y: 0,
+        autoAlpha: 1,
         duration: 0.7,
         stagger: 0.15,
         ease: "power3.out",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top 80%",
+          start: "top 85%",
         },
       });
     }, sectionRef);
