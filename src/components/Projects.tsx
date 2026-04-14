@@ -154,14 +154,6 @@ const projects: Project[] = [
     gradient: "from-primary-glow to-accent-glow",
   },
   {
-    title: "Point Prime POS",
-    category: "E-Commerce Sales Portal",
-    description: "Complete e-commerce sales portal for retail businesses.",
-    fullDescription: "A comprehensive e-commerce sales portal designed for retail businesses. Point Prime POS provides point-of-sale functionality, inventory management, sales tracking, customer management, and reporting — all in a modern, intuitive interface built for speed and efficiency.",
-    image: "/projects/pointprime.png",
-    gradient: "from-accent to-primary",
-  },
-  {
     title: "DA Fashion Atelier",
     category: "Fashion & Bespoke Couture",
     description: "Bespoke fashion house crafting haute couture pieces from Abuja, Nigeria.",
